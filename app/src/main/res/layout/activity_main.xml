@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.scorekeepersoccer.MainActivity"
+    android:background="@drawable/background_image"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <!--
+        TextView below displays the int value for the stopwatch
+        -->
+        <TextView
+        android:id="@+id/textStopWatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/textStopWatch_textSize"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:background="@color/view_background_color"
+        android:textColor="#000000"
+
+        />
+
+        <!--
+        LinearLayout below will hold the
+        start, stop & reset buttons for stopwatch
+        -->
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/large_margin"
+        >
+
+            <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+            <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+            <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds the TextViews
+        displaying team 1 & team 2 including the teams score for each
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:background="@color/view_background_color"
+            >
+
+            <TextView
+                android:id="@+id/textTeam1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/text_color"
+                />
+
+            <TextView
+                android:id="@+id/textTeam2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/text_color"
+                />
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds all the buttons
+        which increase the score for either team
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/medium_margin"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+
+
+                <Button
+                    android:id="@+id/buttonDecrementTeam1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="score"
+                    />
+
+                <Button
+                    android:id="@+id/buttonIncrementTeam1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="score"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+
+
+                <Button
+                    android:id="@+id/buttonDecrementTeam2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="score"
+                    />
+
+                <Button
+                    android:id="@+id/buttonIncrementTeam2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="score"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds the TextViews and Buttons
+        used for the amount of fouls for both teams
+        -->
+        <LinearLayout
+        android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+            <Button
+                android:id="@+id/buttonDecrementTeam1Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam1Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam1Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+            <TextView
+                android:id="@+id/textFouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonDecrementTeam2Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam2Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam2Fouls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds the TextViews and Buttons
+        used for the amount of yellow cards for both teams
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+            <Button
+                android:id="@+id/buttonDecrementTeam1Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam1Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam1Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+            <TextView
+                android:id="@+id/textYellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonDecrementTeam2Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam2Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam2Yellows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds the TextViews and Buttons
+        used for the amount of red cards for both teams
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+            <Button
+                android:id="@+id/buttonDecrementTeam1Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam1Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam1Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textReds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonDecrementTeam2Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam2Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam2Reds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+        </LinearLayout>
+
+        <!--
+        LinearLayout below holds the TextViews and Buttons
+        used for the amount of off-sides for both teams
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/buttonDecrementTeam1OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam1OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam1OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+            <TextView
+                android:id="@+id/textOffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonDecrementTeam2OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+            <TextView
+                android:id="@+id/textTeam2OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                android:background="@color/view_background_color"
+                android:textColor="@color/text_color"
+                />
+
+            <Button
+                android:id="@+id/buttonIncrementTeam2OffSides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="statusTeams"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</ScrollView>
